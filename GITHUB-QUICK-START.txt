@@ -1,0 +1,17 @@
+GITHUB PAGES QUICK START
+
+1. Go to https://github.com/new
+2. Repository name: cris-vini-wedding
+3. Select Public. Do not put guest data or secrets in this repository.
+4. Click Create repository.
+5. Extract the downloaded ZIP. In your repository click Add file > Upload files.
+6. Upload the contents of the extracted folder (not the ZIP itself) and commit to main.
+7. Open Settings > Pages. Select Deploy from a branch, branch main, folder /(root), then Save.
+8. When published, open https://YOUR-USERNAME.github.io/cris-vini-wedding/
+9. Follow README.md Step 4 to connect the guest response form to a private Google Sheet.
+
+IMPORTANT: The response form will not store replies until the Apps Script URL is added to assets/script.js and tested.
+
+
+## Updated art direction
+The wedding visual identity is dusk-inspired, not gold-dominant: deep ocean blue `#2F3F56`, sea blue `#6A8CA0`, mist `#BFD0D6`, dusk rose `#D8A7B0`, peach glow `#F2C2A6`, and soft gold `#C6A66B` used only as a restrained accent. The opening envelope scene uses a dusk-sky and ocean gradient. The monogram and cat line-art remain delicate navy symbols inspired by the separate symbol reference.
