@@ -1,6 +1,6 @@
 
 /* Add your Google Apps Script Web App URL here after completing README setup. */
-const FORM_ENDPOINT = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxXwc_Ifc_QySKixMYayKkx89c8N_Lk_NINK-StyI5WcC-wpV7HQvAwMeXVDrA3SoDU/exec";
 
 /* Letter opening */
 const hero = document.querySelector(".hero");

@@ -227,3 +227,12 @@
     filter: none;
   }
 }
+
+/* Approved Kai and Yuki monogram */
+.cats-monogram {
+  display: block;
+  width: min(100%, 340px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
