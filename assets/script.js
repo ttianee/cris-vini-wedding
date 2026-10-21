@@ -1,6 +1,6 @@
 
-/* Add your Google Apps Script Web App URL here after completing README setup. */
-const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxXwc_Ifc_QySKixMYayKkx89c8N_Lk_NINK-StyI5WcC-wpV7HQvAwMeXVDrA3SoDU/exec";
+/* Google Apps Script Web App URL */
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbw9hQclzMzwqNzXGdG-rADy40VoqPkJPe1B4N-UV5prKtTRlFpFteUOPO9vB9X2XCyo/exec";
 
 /* Letter opening */
 const hero = document.querySelector(".hero");
@@ -16,7 +16,7 @@ weddingMusic.volume = 0;
 let musicStarted = false;
 let fadeTimer = null;
 
-/* Start the music after the visitor opens the letter. */
+/* Start music when the visitor opens the letter */
 async function startWeddingMusic() {
   if (musicStarted) return;
 
@@ -25,7 +25,6 @@ async function startWeddingMusic() {
     await weddingMusic.play();
     musicStarted = true;
 
-    // Gradually increase the volume for a gentle entrance.
     let volume = 0;
 
     fadeTimer = window.setInterval(() => {
@@ -38,15 +37,13 @@ async function startWeddingMusic() {
     }, 200);
 
     const musicButton = document.querySelector("#musicToggle");
+
     if (musicButton) {
       musicButton.textContent = "♫ Music on";
       musicButton.setAttribute("aria-pressed", "true");
     }
   } catch (error) {
-    console.warn(
-      "Music could not start. The visitor may need to interact with the page again.",
-      error
-    );
+    console.warn("Music could not start:", error);
   }
 }
 
@@ -54,7 +51,6 @@ openButton?.addEventListener("click", () => {
   hero?.classList.add("opened");
   openButton.setAttribute("aria-expanded", "true");
 
-  // Opening the seal is the visitor's interaction that starts the music.
   startWeddingMusic();
 
   window.setTimeout(() => {
@@ -65,16 +61,14 @@ openButton?.addEventListener("click", () => {
       letter.scrollIntoView({
         behavior: window.matchMedia(
           "(prefers-reduced-motion: reduce)"
-        ).matches
-          ? "auto"
-          : "smooth",
+        ).matches ? "auto" : "smooth",
         block: "start"
       });
     }
   }, 420);
 });
 
-/* Optional play/pause button, if present in the HTML. */
+/* Optional music play/pause button */
 const musicButton = document.querySelector("#musicToggle");
 
 musicButton?.addEventListener("click", async () => {
@@ -105,14 +99,16 @@ form?.addEventListener("submit", async (event) => {
   status.textContent = "";
   status.classList.remove("error");
 
-  const isPortuguese = document.documentElement.lang === "pt-BR";
+  const isPortuguese =
+    document.documentElement.lang.toLowerCase().startsWith("pt");
+
   const say = (english, portuguese) =>
     isPortuguese ? portuguese : english;
 
   if (!FORM_ENDPOINT.startsWith("https://script.google.com/")) {
     status.textContent = say(
-      "The form is not connected yet. Follow the README to enable private responses.",
-      "O formulário ainda não está conectado. Siga o README para ativar as respostas privadas."
+      "The form is not connected yet.",
+      "O formulário ainda não está conectado."
     );
     status.classList.add("error");
     return;
@@ -124,11 +120,13 @@ form?.addEventListener("submit", async (event) => {
     language: isPortuguese ? "pt-BR" : "en",
     fullName: String(data.get("fullName") || "").trim(),
     email: String(data.get("email") || "").trim(),
+    phone: String(data.get("phone") || "").trim(),
     attendance: String(data.get("attendance") || ""),
-    partySize: String(data.get("partySize") || ""),
+    partySize: String(data.get("partySize") || "1"),
     guestNames: String(data.get("guestNames") || "").trim(),
     message: String(data.get("message") || "").trim(),
-    privacyConsent: document.querySelector("#privacy")?.checked ?? false,
+    privacyConsent:
+      document.querySelector("#privacy")?.checked ?? false,
     submittedAt: new Date().toISOString()
   };
 
@@ -149,12 +147,10 @@ form?.addEventListener("submit", async (event) => {
       body: JSON.stringify(payload)
     });
 
-    form.reset();
+    window.location.href = isPortuguese
+      ? "./obrigada.html"
+      : "./thank-you.html";
 
-    status.textContent = say(
-      "Thank you for replying! This is an early indication, not the final RSVP.",
-      "Obrigada pela resposta! Esta é uma indicação inicial, não a confirmação final."
-    );
   } catch (error) {
     console.error("RSVP submission failed:", error);
 
@@ -164,7 +160,7 @@ form?.addEventListener("submit", async (event) => {
     );
 
     status.classList.add("error");
-  } finally {
+
     if (submitButton) {
       submitButton.disabled = false;
       submitButton.textContent = say(
