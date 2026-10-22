@@ -1,10 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Obrigada — Cris & Vini</title>
+  <meta name="theme-color" content="#f5dfd1">
+  <title>Obrigada — Cris &amp; Vini</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -26,19 +28,35 @@
       padding: 12px;
     }
 
-    img {
+    .thank-you-image {
       display: block;
       width: 100%;
+      max-width: 1100px;
       height: auto;
       max-height: calc(100dvh - 24px);
       object-fit: contain;
+      object-position: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 8px;
+      }
+
+      .thank-you-image {
+        width: 100%;
+        max-height: calc(100dvh - 16px);
+      }
     }
   </style>
 </head>
+
 <body>
   <img
-    src="../assets/photos/agradecimento-pt.png"
+    class="thank-you-image"
+    src="./assets/photos/agradecimento-pt.png"
     alt="Agradecimento de Cris e Vini"
   >
 </body>
 </html>
+
