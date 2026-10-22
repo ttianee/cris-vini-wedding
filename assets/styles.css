@@ -384,3 +384,18 @@
   margin: 0 auto;
   object-fit: contain;
 }
+
+.cats-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 28px auto;
+}
+
+.cats-divider img {
+  display: block;
+  width: 220px;
+  max-width: 70%;
+  height: auto;
+  object-fit: contain;
+}

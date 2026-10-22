@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+  --cream: #F4EBDD;
+  --paper: #FBF6EF;
+  --ink: #2F3F56;
+  --blue: #6A8CA0;
+  --rose: #D8A7B0;
+  --peach: #F2C2A6;
+  --line: #D8CFC7;
+  --muted: #777e84;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; color: var(--ink); background: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px; line-height: 1.6;
+  background-image: radial-gradient(ellipse at 10% 10%, #fffaf4b8, transparent 35%),
+    radial-gradient(ellipse at 95% 60%, #d8a7b026, transparent 35%);
+}
+a { color: inherit; }
+.site { width: min(100%, 1240px); margin: auto; padding: 18px clamp(16px, 4vw, 56px) 50px; }
+.topbar { display:flex; justify-content:space-between; align-items:center; gap:20px; min-height:42px; font:10px Montserrat,sans-serif; letter-spacing:2px; color:var(--blue); }
+.monogram-mini { display:block; width:110px; }
+.monogram-mini img { display:block; width:100%; height:auto; }
+.languages { display:flex; align-items:center; gap:10px; }
+.languages a { text-decoration:none; opacity:.7; padding:4px 2px; }
+.languages a[aria-current="page"] { opacity:1; border-bottom:1px solid var(--rose); color:var(--ink); }
+.back-link { display:inline-block; margin: 12px 0 0; font:10px Montserrat,sans-serif; letter-spacing:1px; text-decoration:none; color:var(--blue); }
+.page-hero { text-align:center; padding:42px 16px 32px; border-bottom:1px solid var(--line); }
+.eyebrow { margin:0 0 10px; font:10px Montserrat,sans-serif; letter-spacing:3px; color:var(--blue); text-transform:uppercase; }
+h1,h2,h3 { font-weight:500; line-height:1.2; }
+h1 { font-size:clamp(38px,6vw,58px); letter-spacing:.04em; margin:0 0 12px; }
+h2 { text-align:center; font-size:clamp(28px,4vw,38px); margin:0 0 20px; }
+h3 { margin:0 0 8px; font-size:25px; }
+.lead { max-width:760px; margin:0 auto; font-size:21px; color:#526b7c; font-style:italic; }
+.horizon { display:flex; align-items:center; gap:12px; width:min(210px,65%); margin:20px auto 0; color:var(--rose); }
+.horizon:before,.horizon:after { content:""; flex:1; height:1px; background:#d8a7b080; }
+.section { margin:34px 0; padding:clamp(20px,3.5vw,38px); background:var(--paper); border:1px solid #e6d9c9; position:relative; }
+.section:before { content:""; position:absolute; inset:7px; border:1px solid #eee4d7; pointer-events:none; }
+.section > * { position:relative; }
+.section-intro { max-width:780px; margin:0 auto 22px; text-align:center; color:#5c6870; }
+.hotel-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.photo-card { margin:0; background:#fffdf8; border:1px solid var(--line); padding:6px; }
+.photo-card img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+.photo-card figcaption { padding:8px 5px 4px; text-align:center; color:var(--blue); font-style:italic; font-size:16px; }
+.action-row { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.button-link { display:inline-block; padding:11px 18px; border:1px solid var(--blue); text-decoration:none; text-align:center; font:10px Montserrat,sans-serif; letter-spacing:1px; }
+.button-link.primary { color:#fffaf4; background:var(--ink); border-color:var(--ink); }
+.video-wrap { max-width:900px; margin:0 auto; background:#e8dcd2; padding:7px; border:1px solid var(--line); }
+.video-wrap video { display:block; width:100%; max-height:560px; background:#283442; }
+.notice { padding:18px 20px; border-left:3px solid var(--blue); background:#eef1ef; margin:20px 0 0; }
+.notice strong { display:block; font:10px Montserrat,sans-serif; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+.notice.hotel { border-left-color:#6b9583; background:#edf2ed; }
+.notice.flight { border-left-color:#c59ba4; background:#f6eff0; }
+.price-table { width:100%; border-collapse:collapse; font-size:18px; }
+.price-table th,.price-table td { padding:13px 12px; text-align:left; border-bottom:1px solid var(--line); }
+.price-table th { font:10px Montserrat,sans-serif; letter-spacing:1px; text-transform:uppercase; color:var(--blue); }
+.price-table td:last-child,.price-table th:last-child { text-align:right; white-space:nowrap; }
+.table-scroll { overflow-x:auto; }
+.small-note { color:var(--muted); font-size:15px; margin:12px 0 0; }
+.map-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.map-card { margin:0; }
+.map-card img { display:block; width:100%; height:auto; border:1px solid var(--line); background:#eee; }
+.map-card figcaption { font-size:16px; font-style:italic; color:var(--blue); text-align:center; margin-top:7px; }
+.map-embed { width:100%; height:360px; border:1px solid var(--line); display:block; margin-top:18px; }
+.airport-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:18px; }
+.info-card { border:1px solid var(--line); padding:18px; background:#fffaf4; }
+.info-card p { margin:5px 0 0; }
+.flight-table td:nth-child(2),.flight-table th:nth-child(2) { white-space:nowrap; }
+.support { text-align:center; background:linear-gradient(135deg,#f7eee9,#e6edf0); }
+.support p { max-width:700px; margin:0 auto 12px; }
+.footer { text-align:center; padding:24px 0 0; font:9px Montserrat,sans-serif; letter-spacing:2px; color:var(--blue); }
+@media(max-width:720px) {
+  .hotel-grid { grid-template-columns:1fr; }
+  .photo-card img { aspect-ratio:16/10; }
+  .map-grid,.airport-grid { grid-template-columns:1fr; }
+  .section { padding:22px 16px; }
+  .price-table { min-width:540px; }
+  .page-hero { padding-top:32px; }
+  .map-embed { height:300px; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+.accommodation-grid { display:grid; grid-template-columns:1fr; gap:16px; margin-top:24px; }
+.accommodation-card { display:grid; grid-template-columns:minmax(220px, 34%) 1fr; gap:20px; align-items:center; background:#fffdf8; border:1px solid var(--line); padding:12px; }
+.accommodation-card img { display:block; width:100%; height:100%; max-height:250px; min-height:180px; object-fit:cover; }
+.accommodation-card h3 { color:var(--ink); font-size:25px; margin:0 0 10px; }
+.accommodation-card p { margin:0; color:#52616a; }
+#accommodation .price-table { min-width:760px; }
+#accommodation .price-table th:not(:first-child), #accommodation .price-table td:not(:first-child) { text-align:right; white-space:nowrap; }
+@media(max-width:720px) {
+  .accommodation-card { grid-template-columns:1fr; gap:12px; }
+  .accommodation-card img { max-height:none; min-height:0; aspect-ratio:16/9; }
+}
+
+.accommodation-card h4 { font-family: Montserrat, sans-serif; font-size: 10px; line-height: 1.6; letter-spacing: 1.3px; text-transform: uppercase; color: var(--blue); margin: 16px 0 8px; }
+.benefit-list { margin: 0; padding-left: 20px; color: #52616a; }
+.benefit-list li { margin: 0 0 7px; }
+.benefit-list strong { color: var(--ink); }
